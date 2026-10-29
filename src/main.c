@@ -21,14 +21,22 @@ void app_main() {
 
   while(true){
     if(melody_handle){
-        play_melody(melody_player_handle, melody_handle);
+        operation_result_t result = play_melody(melody_player_handle, melody_handle);
+
+        if(result){
+            break;
+        }
 
         while(is_melody_playing(melody_player_handle, melody_handle)){
               vTaskDelay(1);
         }
 
-        release_melody(melody_handle);
+        result = release_melody(melody_handle);
         melody_handle = NULL;
+
+        if(result){
+            break;
+        }
     }else{
       vTaskDelay(1);
     }
