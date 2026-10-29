@@ -9,6 +9,7 @@
 #define G4_HZ 392
 #define A4_HZ 440
 #define B4_HZ 493
+#define PAUSE 0
 
 struct note {
     uint32_t frequencyHz;
@@ -39,8 +40,100 @@ struct melody gama_melody = {
 	7
 };
 
+struct melody baby_shark_melody = {
+	(struct note[]) {
+		{C4_HZ, 500},
+		{D4_HZ, 500},
+		{E4_HZ, 500},
+		{PAUSE, 1000},
+		{C4_HZ, 500},
+		{D4_HZ, 500},
+		{E4_HZ, 500},
+		{PAUSE, 1000},
+		{C4_HZ, 500},
+		{D4_HZ, 500},
+		{E4_HZ, 500}
+	},
+	11
+};
+
+struct melody jingle_bells_melody = {
+	(struct note[]) {
+		{E4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 1000},
+		{PAUSE, 250},
+		{E4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 1000},
+		{PAUSE, 250},
+		{E4_HZ, 500},
+		{PAUSE, 50},
+		{G4_HZ, 500},
+		{PAUSE, 50},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{D4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 1000}
+	},
+	21
+};
+
+struct melody twinkle_twinkle_melody = {
+	(struct note[]) {
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{G4_HZ, 500},
+		{PAUSE, 50},
+		{G4_HZ, 500},
+		{PAUSE, 250},
+		{A4_HZ, 500},
+		{PAUSE, 50},
+		{A4_HZ, 500},
+		{PAUSE, 50},
+		{G4_HZ, 1000}
+	},
+	13
+};
+
+struct melody we_will_rock_you_melody ={
+	(struct note[]) {
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{D4_HZ, 500},
+		{PAUSE, 250},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{D4_HZ, 500},
+		{PAUSE, 250},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{C4_HZ, 500},
+		{PAUSE, 50},
+		{D4_HZ, 500},
+		{PAUSE, 50},
+		{E4_HZ, 500}
+	},
+	19
+};
+
 struct melody* melodies[] = {
-    &gama_melody
+    &gama_melody,
+    &baby_shark_melody,
+    &jingle_bells_melody,
+    &twinkle_twinkle_melody,
+    &we_will_rock_you_melody
 };
 
 struct melody_handle handle;

@@ -4,7 +4,7 @@
 #include "errors.h"
 #include <stdint.h>
 
-enum melody_id { NONE, MELODY_GAMA };
+enum melody_id { NONE, MELODY_GAMA, MELODY_BABY_SHARK, MELODY_JINGLE_BELLS, MELODY_TWINKLE_TWINKLE, MELODY_WE_WILL_ROCK_YOU };
 
 struct melody_handle;
 

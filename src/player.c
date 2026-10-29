@@ -106,8 +106,11 @@ IRAM_ATTR operation_result_t setup_to_play_next_note(uint32_t *frequency, uint32
         return OPERATION_RESULT_ERROR;
     }
 
-	ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, *frequency);
-	ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, PERFORMANCE_DUTY);
+	uint32_t target_frequency = *frequency == 0 ? IDLE_FREQUENCY : *frequency;
+	uint32_t target_duty = *frequency == 0 ? SILENCE_DUTY : PERFORMANCE_DUTY;
+
+	ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, target_frequency);
+	ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, target_duty);
 	ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
 
 	gptimer_alarm_conf.alarm_count = 0;
